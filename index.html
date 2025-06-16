@@ -1,271 +1,125 @@
+<div style="text-align: center; margin-bottom: 50px;">
+  <div style="width: 100px; height: 3px; background: #ff4081; margin: 0 auto 10px;"></div>
+  <h1 style="
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #ff4081;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  ">
+    MORE GIRLS<br>MORE PASSION
+  </h1>
+  <div style="width: 100px; height: 3px; background: #ff4081; margin: 10px auto 0;"></div>
+</div>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gallery</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 10px;
-      background-color: #f0f0f0;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 16px;
-      max-width: 1600px;
-      margin: 0 auto;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      overflow: hidden;
-      text-decoration: none;
-      color: #000;
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .card img {
-      width: 100%;
-      height: auto;
-      display: block;
-      pointer-events: none; /* 让img不阻止a点击 */
-    }
-
-    .text {
-      padding: 10px 14px 14px 14px;
-      user-select: none;
-    }
-
-    .name {
-      font-size: 16px;
-      font-weight: bold;
-      margin-bottom: 4px;
-    }
-
-    .desc {
-      font-size: 14px;
-    }
-
-    .desc a {
-      color: #007bff;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .desc a:hover {
-      text-decoration: underline;
-    }
-
-    /* 响应式 */
-    @media (max-width: 1200px) {
-      .gallery {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .gallery {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 500px) {
-      .gallery {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>推广图片画廊</title>
+<style>
+  body {
+    margin: 0; padding: 20px; background: #fff; font-family: Arial, sans-serif;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+  }
+  .photo-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5; /* 1080x1350比例 */
+    overflow: hidden;
+    border-radius: 6px;
+    background: #000;
+  }
+  .photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+  }
+  @media (max-width: 1024px) {
+    .gallery { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .gallery { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 
-<div class="gallery">
-  <!-- 注意：每个.card外层是联盟链接，内部Instagram是独立跳转 -->
-  
-  <a href="https://t.acrsmartcam.com/376784/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN" target="_blank" class="card">
-    <img src="https://i.imgur.com/8tyLTDD.jpeg" alt="Bella" />
-    <div class="text">
-      <div class="name">Bella</div>
-      <div class="desc">Instagram: <a href="https://instagram.com/bellabvmsy" target="_blank" onclick="event.stopPropagation()">@bellabvmsy</a></div>
-    </div>
-  </a>
+<div class="gallery" id="gallery"></div>
 
-  <a href="https://t.acrsmartcam.com/376784/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN" target="_blank" class="card">
-    <img src="https://i.imgur.com/yq20jj9.jpeg" alt="Gabby Epstein" />
-    <div class="text">
-      <div class="name">Gabby Epstein</div>
-      <div class="desc">Instagram: <a href="https://instagram.com/gabbyepstein" target="_blank" onclick="event.stopPropagation()">@gabbyepstein</a></div>
-    </div>
-  </a>
+<script>
+  // 你的图片数组
+  const images = [
+    "https://i.imgur.com/8tyLTDD.jpeg",
+    "https://i.imgur.com/yq20jj9.jpeg",
+    "https://i.imgur.com/vNyMuJp.jpeg",
+    "https://i.imgur.com/sEQkqSq.jpeg",
+    "https://i.imgur.com/C6Imh9P.jpeg",
+    "https://i.imgur.com/8oi5whk.jpeg",
+    "https://i.imgur.com/mzYyYIF.jpeg",
+    "https://i.imgur.com/nlatjJW.jpeg",
+    "https://i.imgur.com/18hin4a.jpeg",
+    "https://i.imgur.com/gc0Kq83.jpeg",
+    "https://i.imgur.com/ZKOSBzc.jpeg",
+    "https://i.imgur.com/Tqcy0CA.jpeg",
+    "https://i.imgur.com/mT7SjkF.jpeg",
+    "https://i.imgur.com/B13Mdjx.jpeg",
+    "https://i.imgur.com/vCSTB8C.jpeg",
+    "https://i.imgur.com/9kPfytH.jpeg",
+    "https://i.imgur.com/QoTHDKS.jpeg",
+    "https://i.imgur.com/AxrHwuM.jpeg",
+    "https://i.imgur.com/mBlgrle.jpeg",
+    "https://i.imgur.com/QjyBgXp.jpeg",
+    "https://i.imgur.com/kav0Whu.jpeg",
+    "https://i.imgur.com/wzmMKB0.jpeg",
+    "https://i.imgur.com/Ngh2hSl.jpeg",
+    "https://i.imgur.com/2Dec8Ss.jpeg",
+    "https://i.imgur.com/xoeMdSS.jpeg",
+    "https://i.imgur.com/857y0Ck.jpeg",
+    "https://i.imgur.com/Wlz9Edm.jpeg",
+    "https://i.imgur.com/1dBOrrm.jpeg",
+    "https://i.imgur.com/mcAXGmz.jpeg",
+    "https://i.imgur.com/d1JvqXL.jpeg",
+    "https://i.imgur.com/LgoUbm4.jpeg",
+    "https://i.imgur.com/bRgJ3y9.jpeg",
+    "https://i.imgur.com/qvAsiey.jpeg",
+    "https://i.imgur.com/yXq7zxU.jpeg"
+  ];
 
-  <a href="https://t.acrsmartcam.com/376784/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN" target="_blank" class="card">
-    <img src="https://i.imgur.com/vNyMuJp.jpeg" alt="Gabi" />
-    <div class="text">
-      <div class="name">Gabi</div>
-      <div class="desc">Instagram: <a href="https://instagram.com/gabi" target="_blank" onclick="event.stopPropagation()">@gabi</a></div>
-    </div>
-  </a>
+  // 统一联盟推广链接（示范用）
+  const affiliateLink = "https://your-affiliate-link.com";
 
-  <a href="https://t.acrsmartcam.com/376784/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN" target="_blank" class="card">
-    <img src="https://i.imgur.com/sEQkqSq.jpeg" alt="Jadelavoie" />
-    <div class="text">
-      <div class="name">Jadelavoie</div>
-      <div class="desc">Instagram: <a href="https://instagram.com/jadelavoie" target="_blank" onclick="event.stopPropagation()">@jadelavoie</a></div>
-    </div>
-  </a>
+  const gallery = document.getElementById("gallery");
 
-  <a href="https://t.acrsmartcam.com/376784/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN" target="_blank" class="card">
-    <img src="https://i.imgur.com/glA8ZtJ.jpeg" alt="Royalcam" />
-    <div class="text">
-      <div class="name">Royalcam</div>
-      <div class="desc">Live Register Free</div>
-    </div>
-  </a>
+  images.forEach((src, index) => {
+    const card = document.createElement("div");
+    card.className = "photo-card";
 
-  <a href="https://t.acrsmartcam.com/376784/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN" target="_blank" class="card">
-    <img src="https://i.imgur.com/C6Imh9P.jpeg" alt="jadelyn" />
-    <div class="text">
-      <div class="name">jadelyn</div>
-      <div class="desc">Instagram: <a href="https://instagram.com/jadelynmusic" target="_blank" onclick="event.stopPropagation()">@jadelynmusic</a></div>
-    </div>
-  </a>
+    const link = document.createElement("a");
+    link.href = affiliateLink;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
 
-  <a href="https://t.acrsmartcam.com/376784/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN" target="_blank" class="card">
-    <img src="https://i.imgur.com/8oi5whk.jpeg" alt="jenny" />
-    <div class="text">
-      <div class="name">jenny</div>
-      <div class="desc">Instagram: <a href="https://instagram.com/jennyrizzz" target="_blank" onclick="event.stopPropagation()">@jennyrizzz</a></div>
-    </div>
-  </a>
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = `推广图片${index + 1}`;
 
-  <a href="https://t.acrsmartcam.com/376784/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN" target="_blank" class="card">
-    <img src="https://i.imgur.com/mzYyYIF.jpeg" alt="Karina" />
-    <div class="text">
-      <div class="name">Karina</div>
-      <div class="desc">Instagram: <a href="https://instagram.com/rine.essa" target="_blank" onclick="event.stopPropagation()">@rine.essa</a></div>
-    </div>
-  </a>
-
-  <a href="https://t.acrsmartcam.com/376784/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN" target="_blank" class="card">
-    <img src="https://i.imgur.com/18hin4a.jpeg" alt="KawakitaSaika" />
-    <div class="text">
-      <div class="name">KawakitaSaika</div>
-      <div class="desc">Instagram: <a href="https://instagram.com/saika_kawakita__official" target="_blank" onclick="event.stopPropagation()">@saika_kawakita__official</a></div>
-    </div>
-  </a>
-
-  <a href="https://t.acrsmartcam.com/376784/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN" target="_blank" class="card">
-    <img src="https://i.imgur.com/gc0Kq83.jpeg" alt="Mia Malkova" />
-    <div class="text">
-      <div class="name">Mia Malkova</div>
-      <div class="desc">Instagram: <a href="https://instagram.com/miamalkova" target="_blank" onclick="event.stopPropagation()">@miamalkova</a></div>
-    </div>
-  </a>
-
-  <a href="https://t.acrsmartcam.com/376784/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN" target="_blank" class="card">
-    <img src="https://i.imgur.com/a5FdaNN.jpeg" alt="Royalcam" />
-    <div class="text">
-      <div class="name">Royalcam</div>
-      <div class="desc">Live Register Free</div>
-    </div>
-  </a>
-
-  <a href="https://t.acrsmartcam.com/376784/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN" target="_blank" class="card">
-    <img src="https://i.imgur.com/wzmMKB0.jpeg" alt="miamiiska" />
-    <div class="text">
-      <div class="name">miamiiska</div>
-      <div class="desc">Instagram: <a href="https://instagram.com/miamiiska" target="_blank" onclick="event.stopPropagation()">@miamiiska</a></div>
-    </div>
-  </a>
-
-  <a href="https://t.acrsmartcam.com/376784/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN" target="_blank" class="card">
-    <img src="https://i.imgur.com/rGiNk4y.jpeg" alt="Neko" />
-    <div class="text">
-      <div class="name">Neko</div>
-      <div class="desc">Instagram: <a href="https://instagram.com/nekokix" target="_blank" onclick="event.stopPropagation()">@nekokix</a></div>
-    </div>
-  </a>
-
-  <a href="https://t.acrsmartcam.com/376784/7012?bo=2779,2778,2777,2776,2775&popUnder=true&aff_sub5=SF_006OG000004lmDN" target="_blank" class="card">
-    <img src="https://i.imgur.com/LVWDOe7.jpeg" alt="CAM4" />
-    <div class="text">
-      <div class="name">CAM4</div>
-      <div class="desc">Live Register Free</div>
-    </div>
-  </a>
-
-  <a href="https://t.acrsmartcam.com/376784/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN" target="_blank" class="card">
-    <img src="https://i.imgur.com/mT7SjkF.jpeg" alt="renae erica" />
-    <div class="text">
-      <div class="name">renae erica</div>
-      <div class="desc">Instagram: <a href="https://instagram.com/renaeericaaa" target="_blank" onclick="event.stopPropagation()">@renaeericaaa</a></div>
-    </div>
-  </a>
-
-  <a href="https://t.acrsmartcam.com/376784/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN" target="_blank" class="card">
-    <img src="https://i.imgur.com/B13Mdjx.jpeg" alt="Shaye Rivers" />
-    <div class="text">
-      <div class="name">Shaye Rivers</div>
-      <div class="desc">Instagram: <a href="https://instagram.com/shaye.rivers.snapchat" target="_blank" onclick="event.stopPropagation()">@shaye.rivers.snapchat</a></div>
-    </div>
-  </a>
-
-  <a href="https://t.acrsmartcam.com/376784/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN" target="_blank" class="card">
-    <img src="https://i.imgur.com/vCSTB8C.jpeg" alt="Skylar Mae" />
-    <div class="text">
-      <div class="name">Skylar Mae</div>
-      <div class="desc">Instagram: <a href="https://instagram.com/officialskylarmaexo" target="_blank" onclick="event.stopPropagation()">@officialskylarmaexo</a></div>
-    </div>
-  </a>
-
-  <a href="https://t.acrsmartcam.com/376784/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN" target="_blank" class="card">
-    <img src="https://i.imgur.com/9kPfytH.jpeg" alt="Vic Hoa" />
-    <div class="text">
-      <div class="name">Vic Hoa</div>
-      <div class="desc">Instagram: <a href="https://instagram.com/iamasiadoll" target="_blank" onclick="event.stopPropagation()">@iamasiadoll</a></div>
-    </div>
-  </a>
-
-  <a href="https://t.acrsmartcam.com/376784/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN" target="_blank" class="card">
-    <img src="https://i.imgur.com/nWjGhhF.jpeg" alt="Linn" />
-    <div class="text">
-      <div class="name">Linn</div>
-      <div class="desc">Instagram: <a href="https://instagram.com/linnoak.bby" target="_blank" onclick="event.stopPropagation()">@linnoak.bby</a></div>
-    </div>
-  </a>
-
-  <a href="https://t.acrsmartcam.com/376784/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN" target="_blank" class="card">
-    <img src="https://i.imgur.com/VphxVI4.jpeg" alt="Luxandra" />
-    <div class="text">
-      <div class="name">Luxandra</div>
-      <div class="desc">Instagram: <a href="https://instagram.com/luxandra_city_of_london" target="_blank" onclick="event.stopPropagation()">@luxandra_city_of_london</a></div>
-    </div>
-  </a>
-
-  <a href="https://t.acrsmartcam.com/376784/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN" target="_blank" class="card">
-    <img src="https://i.imgur.com/muuH0Dp.jpeg" alt="bellathorne" />
-    <div class="text">
-      <div class="name">bellathorne</div>
-      <div class="desc">Instagram: <a href="https://instagram.com/bellathorne" target="_blank" onclick="event.stopPropagation()">@bellathorne</a></div>
-    </div>
-  </a>
-
-  <a href="https://t.acrsmartcam.com/376784/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN" target="_blank" class="card">
-    <img src="https://i.imgur.com/zXURf16.jpeg" alt="Noelle Beѕt" />
-    <div class="text">
-      <div class="name">Noelle Beѕt</div>
-      <div class="desc">Instagram: <a href="https://instagram.com/noelle_best" target="_blank" onclick="event.stopPropagation()">@noelle_best</a></div>
-    </div>
-  </a>
-
-</div>
+    link.appendChild(img);
+    card.appendChild(link);
+    gallery.appendChild(card);
+  });
+</script>
 
 </body>
 </html>
