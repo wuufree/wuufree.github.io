@@ -1,89 +1,273 @@
+<div style="text-align: center; margin-bottom: 50px;">
+  <div style="width: 100px; height: 3px; background: #ff4081; margin: 0 auto 10px;"></div>
+  <h1 style="
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #ff4081;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  ">
+    MORE GIRLS<br>MORE PASSION
+  </h1>
+  <div style="width: 100px; height: 3px; background: #ff4081; margin: 10px auto 0;"></div>
+</div>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Exclusive Offer - 18+ Content</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: Arial, sans-serif;
-    }
-
-    .background {
-      background-image: url('https://i.imgur.com/QoTHDKS.jpeg'); /* 换成你自己图片路径 */
-      background-size: cover;
-      background-position: center;
-      height: 100%;
-      position: relative;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      color: #fff;
-    }
-
-    h1 {
-      font-size: 36px;
-      color: #ff4081;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 16px;
-      line-height: 1.6;
-      max-width: 600px;
-      margin-bottom: 30px;
-    }
-
-    .cta-button {
-      padding: 15px 40px;
-      background-color: #ff4081;
-      color: #fff;
-      text-decoration: none;
-      font-size: 18px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(255, 64, 129, 0.6);
-      transition: all 0.3s ease;
-    }
-
-    .cta-button:hover {
-      background-color: #e91e63;
-    }
-
-    .footer {
-      position: absolute;
-      bottom: 15px;
-      font-size: 12px;
-      color: #aaa;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>more girls more passion</title>
+<style>
+  body {
+    margin: 0; padding: 20px; background: #fff; font-family: Arial, sans-serif;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+  }
+  .photo-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5; /* 1080x1350比例 */
+    overflow: hidden;
+    border-radius: 6px;
+    background: #000;
+  }
+  .photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+  }
+  @media (max-width: 1024px) {
+    .gallery { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .gallery { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 
-  <div class="background">
-    <div class="overlay">
-      <h1>🔞 Adults Only - Exclusive Content</h1>
-      <p>This website contains adult material intended for individuals aged 18 and above. By clicking below, you confirm that you are of legal age and wish to proceed to our partner site.</p>
-      <a class="cta-button" href="https://your-affiliate-link.com" target="_blank">Enter Now</a>
-      <div class="footer">
-        &copy; 2025 Topsymbols.online | Affiliate Disclaimer | 18+ Only
-      </div>
-    </div>
-  </div>
+<div class="gallery" id="gallery"></div>
+
+<script>
+  // 你的图片数组
+  const images = [
+    "https://i.imgur.com/8tyLTDD.jpeg",
+    "https://i.imgur.com/yq20jj9.jpeg",
+    "https://i.imgur.com/vNyMuJp.jpeg",
+    "https://i.imgur.com/sEQkqSq.jpeg",
+    "https://i.imgur.com/C6Imh9P.jpeg",
+    "https://i.imgur.com/8oi5whk.jpeg",
+    "https://i.imgur.com/mzYyYIF.jpeg",
+    "https://i.imgur.com/nlatjJW.jpeg",
+    "https://i.imgur.com/18hin4a.jpeg",
+    "https://i.imgur.com/gc0Kq83.jpeg",
+    "https://i.imgur.com/ZKOSBzc.jpeg",
+    "https://i.imgur.com/Tqcy0CA.jpeg",
+    "https://i.imgur.com/mT7SjkF.jpeg",
+    "https://i.imgur.com/B13Mdjx.jpeg",
+    "https://i.imgur.com/vCSTB8C.jpeg",
+    "https://i.imgur.com/9kPfytH.jpeg",
+    "https://i.imgur.com/QoTHDKS.jpeg",
+    "https://i.imgur.com/AxrHwuM.jpeg",
+    "https://i.imgur.com/mBlgrle.jpeg",
+    "https://i.imgur.com/QjyBgXp.jpeg",
+    "https://i.imgur.com/kav0Whu.jpeg",
+    "https://i.imgur.com/wzmMKB0.jpeg",
+    "https://i.imgur.com/Ngh2hSl.jpeg",
+    "https://i.imgur.com/2Dec8Ss.jpeg",
+    "https://i.imgur.com/xoeMdSS.jpeg",
+    "https://i.imgur.com/857y0Ck.jpeg",
+    "https://i.imgur.com/Wlz9Edm.jpeg",
+    "https://i.imgur.com/1dBOrrm.jpeg",
+    "https://i.imgur.com/mcAXGmz.jpeg",
+    "https://i.imgur.com/d1JvqXL.jpeg",
+    "https://preview.redd.it/very-pretty-v0-dgnyprqq2q6f1.jpeg?width=1080&crop=smart&auto=webp&s=49db42dd061430dd37cdb0811d66c5c1580c04b5 ", 
+    "https://preview.redd.it/that-booty-v0-36iswxfcag2f1.jpg?width=1080&crop=smart&auto=webp&s=fd85e5851d31099d98aa92696d9c25621161558b ",
+    "https://preview.redd.it/los-angeles-baddie-v0-kyifimy4ki6f1.jpg?width=1080&crop=smart&auto=webp&s=9a5e95044dfb4f3ed34afb398d67910890fde16f ",
+    "https://preview.redd.it/lindsay-brewer-irtr-v0-mxxulgoky67f1.jpeg?width=1080&crop=smart&auto=webp&s=9f6e52b9307730e8e1babde59762904f74398bcd ",
+    "https://preview.redd.it/alexandra-baron-irtr-v0-mffsflu8h57f1.jpeg?width=640&crop=smart&auto=webp&s=f030d233a66f5d7b501b1a164e8ce2d375aa104a ",
+    "https://preview.redd.it/leila-bauer-irtr-v0-83kkjhz7q77f1.jpg?width=1080&crop=smart&auto=webp&s=1ef64b3d8413788c173092c64051d2b1d256bfaa",
+    "https://preview.redd.it/leila-bauer-irtr-v0-y4uwdhz7q77f1.jpg?width=1080&crop=smart&auto=webp&s=29e36096aae6f382b299b411ea6be52bc1795104",
+    "https://preview.redd.it/hailey-ig-irtr-v0-h9uitnvf167f1.jpeg?width=1080&crop=smart&auto=webp&s=9acea2ab8625c6c62b35ddc5d09e4177e975e659",
+    "https://preview.redd.it/hailey-grace-irtr-v0-ohrl4x0gzk2f1.png?width=640&crop=smart&auto=webp&s=35aaa12cf6e9d98f8d8ee42acfaf6cb8d42d6f39",
+    "https://preview.redd.it/nicola-cavanis-irtr-v0-zz6r8hfmjz6f1.jpeg?width=1080&crop=smart&auto=webp&s=64999a8b9107d265e2306ac5e5635fae9cff5d57",
+    "https://preview.redd.it/jazm%C3%ADn-peralta-irtr-v0-v7k2hwf4o77f1.jpeg?width=1080&crop=smart&auto=webp&s=05cff1d37d7c0bf65dc3624e93a94599ee9e0293",
+    "https://preview.redd.it/stacey-insta-irtr-v0-vcor31vpd37f1.jpeg?width=1080&crop=smart&auto=webp&s=420ce20e4d9977dcf5a8554c3281f78d99bda83b",
+    "https://preview.redd.it/ekaterina-mironenko-aka-katya-miro-irtr-v0-6s90g1k1qt5f1.jpg?width=1080&crop=smart&auto=webp&s=6ffae7b74d569e176718080737343c8c3825d080",
+    "https://preview.redd.it/madi-teeuws-irtr-v0-k9pt3g05t66f1.jpg?width=1080&crop=smart&auto=webp&s=49f8bf2bba0e3cd4ef4c37a02dee055e693097cd",
+    "https://preview.redd.it/genesis-rodriguez-irtr-v0-j3yffqry237f1.jpg?width=640&crop=smart&auto=webp&s=9500c0dfc917ad0446cb7d1200a30a1f495cef64",
+    "https://preview.redd.it/mary-amber-irtr-v0-zh5hz0qq726f1.jpeg?width=640&crop=smart&auto=webp&s=a10e77fce84bd491c87cc911b8475ef2c880b4c3",
+    "https://preview.redd.it/lindsay-brewer-irtr-v0-vol9pyy9lz6f1.jpg?width=640&crop=smart&auto=webp&s=ed12a896438b6c74073852a212704471cebb3da6",
+    "https://preview.redd.it/viktoria-ig-irtr-v0-huw1p9ikfv5f1.jpeg?width=1080&crop=smart&auto=webp&s=2e3653fed95210781ad64aefd8bcd5a8115d3781",
+    "https://preview.redd.it/jennifer-lawrence-irtr-v0-m6r9cycy667f1.jpeg?width=320&crop=smart&auto=webp&s=6574d812f8675f99f3d34849e04467216ce124f4",
+    "https://preview.redd.it/franceska-fournier-irtr-v0-1zpi1zy6eu0f1.jpeg?width=1080&crop=smart&auto=webp&s=7d78ec800d09b37db4109e66ced7beb26eed0675",
+    "https://preview.redd.it/trippie-insta-irtr-v0-vumpjui9e97f1.jpeg?width=1080&crop=smart&auto=webp&s=425719d6f6c5b701e0671c08579ab7225ba3521e",
+    "https://preview.redd.it/maria-emilia-mondelli-irtr-v0-zcueabbvyk6f1.jpeg?width=1080&crop=smart&auto=webp&s=3959926380decaff72f947f5e918c4a5f966dbce",
+    "https://preview.redd.it/morven-macsween-irtr-v0-0pu6pwwmqv6f1.jpeg?width=640&crop=smart&auto=webp&s=956f8e2a4554bdbf5956514be066c8365ccfcc0b",
+    "https://preview.redd.it/bailey-stewart-irtr-v0-woyd2x47ht6f1.jpeg?width=640&crop=smart&auto=webp&s=579889225e8a61a215f13ee69264fafcd552f57a",
+    "https://preview.redd.it/ekaterina-shikhaleva-irtr-v0-zalgwvsyft6f1.jpeg?width=1080&crop=smart&auto=webp&s=25f73ed02b0ec2ca61559ef3e229b1f0ed92ea68",
+    "https://preview.redd.it/rina-tds-irtr-v0-a0l9s70s026f1.jpg?width=1080&crop=smart&auto=webp&s=0d78b6ad5f1be75c7c423fafad7aba9f89aa58e2",
+    "https://preview.redd.it/alexandra-baron-irtr-v0-8uenk9vn0e6f1.jpeg?width=640&crop=smart&auto=webp&s=d052444b677671af94c303074a2bb8372411ce2a",
+    "https://preview.redd.it/emma-roberts-irtr-v0-7qc1b0v2io6f1.jpeg?width=1080&crop=smart&auto=webp&s=306a57ef46d32f8922cc33a482d89ae719a175d7",
+    "https://preview.redd.it/leni-klum-irtr-v0-0tmm2ifntr5f1.jpeg?width=1080&crop=smart&auto=webp&s=9822f814fdbc604070f529b687b1a87b82a0314b",
+    "https://preview.redd.it/mckenna-grace-irtr-v0-1s7evefbzr5f1.jpeg?width=640&crop=smart&auto=webp&s=b9f343ae2f2ffa09d254fcdd96de6ce0e1259c86",
+    "https://preview.redd.it/virg%C3%ADnia-insta-irtr-v0-i5s9siyndo6f1.jpg?width=1080&crop=smart&auto=webp&s=1b210d1cf9dcf0b5966caa1beaf42482ba464051",
+    "https://preview.redd.it/mary-amber-irtr-v0-8u1t3lxosq5f1.jpeg?width=1080&crop=smart&auto=webp&s=7fe644ea7e71a25ca603a3e3321ef6308975f062",
+    "https://preview.redd.it/nicola-cavanis-irtr-v0-xwk6bpqdw56f1.jpeg?width=320&crop=smart&auto=webp&s=8ef2fef5a7ae50dc44c20ae7e2b56fd597ae06e6",
+    "https://preview.redd.it/meghan-roche-irtr-v0-fhzqt6vfnk6f1.jpeg?width=1080&crop=smart&auto=webp&s=6000a5599f28f695ab9325b14d4bf5bffc93de97",
+    "https://preview.redd.it/elisha-herbert-irtr-v0-gm5zw94lni6f1.jpeg?width=1080&crop=smart&auto=webp&s=a915b325c9f91f266f17b37f5bc2a01ff1da9204",
+    "https://preview.redd.it/vishaka-dhiman-irtr-v0-jlmlk2blki6f1.jpeg?width=1080&crop=smart&auto=webp&s=1119cb85ac057977e23347359e7aafed0f380364",
+    "https://preview.redd.it/victoria-justice-irtr-v0-cmmrikbrxr5f1.jpeg?width=640&crop=smart&auto=webp&s=93afa2553125f19dbc0451636231cb395a6887d8",
+    "https://preview.redd.it/giusy-meloni-irtr-v0-eruvz7q5rr5f1.png?width=1080&crop=smart&auto=webp&s=33dbe658e085fcc6e784c450566ecc3c25cc15e5",
+    "https://preview.redd.it/yael-aris-irtr-v0-ymx5hvaf4i6f1.jpeg?width=1080&crop=smart&auto=webp&s=13bc993d3aca754929dc2613f9b30fa1fd319ef1",
+    "https://preview.redd.it/lucia-ferrato-irtr-v0-8kff21gboq5f1.jpeg?width=1080&crop=smart&auto=webp&s=637cfa1b0b64842f06f8296894b093ff8f8327fa",
+    "https://preview.redd.it/valeria-mejia-v0-f8guh4ar4p5f1.jpeg?width=1080&crop=smart&auto=webp&s=e9cfd7d4e112e3d74a2752a91c76ade760af390b",
+    "https://preview.redd.it/kiala-renae-irtr-v0-kn4hmy5lrg6f1.jpeg?width=1080&crop=smart&auto=webp&s=3629deee2ba39ec7deb568bd396da4d2d1f24065",
+    "https://preview.redd.it/savannah-clarke-irtr-v0-ptjkuqt2yf6f1.jpeg?width=1080&crop=smart&auto=webp&s=4601275b0120fa98a28c4336f3b7a8ae647b6eae",
+    "https://preview.redd.it/aileen-hnatiuk-irtr-v0-pdhsv7y2gz5f1.jpeg?width=1080&crop=smart&auto=webp&s=9a80960e25d4bcc4137f8d212172d8b376b7e061",
+    "https://preview.redd.it/trippie-insta-irtr-v0-vj8b3gi78s5f1.jpeg?width=1080&crop=smart&auto=webp&s=9de44b389378cdbb9fb1c59df3a739fcc3cd1f32",
+    "https://preview.redd.it/aya-wolf-irtr-v0-tkbfp2u4bs5f1.jpeg?width=640&crop=smart&auto=webp&s=9e341f09a34ace36bb3822206a1b2d126998800f",
+    "https://preview.redd.it/katie-hamden-irtr-v0-jczx989ruo5f1.jpeg?width=1080&crop=smart&auto=webp&s=0678eeb04fc8354c58985a7c853c44454a5eed17",
+    "https://preview.redd.it/stella-tiana-stegmann-irtr-v0-ybxefwtl1l6f1.jpeg?width=640&crop=smart&auto=webp&s=bb3239fa4222322745deb39b641a29f34dda2b0b",
+    "https://preview.redd.it/valeria-mejia-irtr-v0-v40xxkzs3p5f1.jpg?width=1080&crop=smart&auto=webp&s=95d3b3b172e271d95471a6b027a79ff2fb5daa80",
+    "https://preview.redd.it/cynda-mcelvana-irtr-v0-22rpvfkqbp5f1.jpeg?width=1080&crop=smart&auto=webp&s=8e7e86efd368159d1bdbb738491b688d95911342",
+    "https://preview.redd.it/lindsay-brewer-irtr-v0-ewlc3ettbl6f1.jpeg?width=1080&crop=smart&auto=webp&s=0a6b3c70c5a73dc39cddfa2d1bd8ad3441215eec",
+    "https://preview.redd.it/grace-ig-irtr-v0-caega76w2b6f1.jpeg?width=1080&crop=smart&auto=webp&s=2711b61389753edb32465115a737c24c2475b727",
+    "https://preview.redd.it/polina-batychek-irtr-v0-dszt8xgoyr5f1.jpeg?width=640&crop=smart&auto=webp&s=431f03eefbcc834fb5d58e56c500fefbd7b9a7c1",
+    "https://preview.redd.it/adrian-callori-irtr-v0-kmnozfl9h96f1.jpeg?width=640&crop=smart&auto=webp&s=9465edd5d11d323d64a554a67cbe74929961db41",
+    "https://preview.redd.it/anja-bla-irtr-v0-34cauwafkh6f1.jpeg?width=1080&crop=smart&auto=webp&s=2d9849097b9b33001d418187f8dabcb68be0823d",
+    "https://preview.redd.it/marisa-abela-irtr-v0-mdkkubvl4s5f1.jpeg?width=1080&crop=smart&auto=webp&s=abfd34275ecc39f23b65fabfcb3b729fd0f525f3",
+    "https://preview.redd.it/hannah-le-irtr-v0-q28l0nihro5f1.png?width=1080&crop=smart&auto=webp&s=c568e335ec746f72fabb191b9ff5b31d8a8741cf",
+    "https://preview.redd.it/alexandra-daddario-irtr-v0-oi1kn4t9hp5f1.jpeg?width=1080&crop=smart&auto=webp&s=197fc3a79a725de7c7bf68dcb3b4bc6cacffcbdc",
+    "https://preview.redd.it/megan-fox-irtr-v0-uc06pzhhhp5f1.jpeg?width=1080&crop=smart&auto=webp&s=b2e44211abf74bcda096b4e9ed29476e1e2753e1",
+    "https://preview.redd.it/monikka-insta-irtr-v0-4h9j0d9fmk5f1.jpg?width=1080&crop=smart&auto=webp&s=730fee560cb0521d516b938c35650b26e3bec077",
+    "https://preview.redd.it/emily-feld-irtr-v0-qzyv22f1mk5f1.jpg?width=640&crop=smart&auto=webp&s=dd7401b753453a4befa7b16cf52a582d5a0f311a",
+    "https://preview.redd.it/hannah-insta-irtr-v0-61fuev9jai5f1.jpeg?width=640&crop=smart&auto=webp&s=d22541b7158686b7cc1cb5cc0f15b0342eabe094",
+    "https://preview.redd.it/ana-de-armas-irtr-v0-uyjzrg00vk5f1.jpeg?width=1080&crop=smart&auto=webp&s=821d6704cbc722c9d906523cca7ede1bde0a9501",
+    "https://preview.redd.it/autumn-renae-irtr-v0-gm20x7d93i5f1.jpeg?width=1080&crop=smart&auto=webp&s=2939c1e1d046524840521218f928d52d33cd2fa5",
+    "https://preview.redd.it/diana-penty-irtr-v0-1d4zwyzaih6f1.jpeg?width=640&crop=smart&auto=webp&s=24e103e3a69caaaea8755111abe27e187a5a7cb0",
+    "https://preview.redd.it/tomioka-mai-irtr-v0-e2ql6gvfqj5f1.jpeg?width=1080&crop=smart&auto=webp&s=30e7c8b681d7f6400e4f1a9cfa17f4f7d5cc6cf2",
+    "https://preview.redd.it/morven-macsween-irtr-v0-l7wn0hp0yh5f1.jpeg?width=1080&crop=smart&auto=webp&s=481794fbb358752c72d5726b1040b646297fc886",
+    "https://preview.redd.it/kim-smith-irtr-v0-xlwtsw4eww6f1.jpeg?width=1080&crop=smart&auto=webp&s=9a8698b106fed27d46bcf528f68d0d5e6afac295",
+    "https://preview.redd.it/miranda-kerr-irtr-v0-hdvj41zrpi5f1.png?width=1080&crop=smart&auto=webp&s=7a6dd95492ec5d49b2fbcae926bd6acae23e4be9",
+    "https://preview.redd.it/eiza-gonz%C3%A1lez-irtr-v0-grvia6l77h5f1.jpeg?width=1080&crop=smart&auto=webp&s=7f8feb51aea9053540d9070a8ee0f8170605f2dd",
+    "https://preview.redd.it/tara-sutaria-irtr-v0-nl94i36e1j5f1.jpeg?width=1080&crop=smart&auto=webp&s=b496d2ff183d76d584cd265cec73882e81333336",
+    "https://preview.redd.it/anastasia-reshetova-irtr-v0-1e1xgluoym6f1.jpeg?width=640&crop=smart&auto=webp&s=ab568d53c9ededd5fa24b57b7f2831f7b767a944",
+    "https://preview.redd.it/allie-insta-irtr-v0-adse8iazak6f1.jpg?width=1080&crop=smart&auto=webp&s=f37b27e2d45d4520a28f3e335b05a32e7492af60",
+    "https://preview.redd.it/roseanne-park-irtr-v0-xsjxl6b78j5f1.jpeg?width=1080&crop=smart&auto=webp&s=284eab24bd8dabfcecba5aa484caf12d02822cec",
+    "https://preview.redd.it/aishwarya-rai-irtr-v0-m4wbhlxg6i5f1.jpeg?width=640&crop=smart&auto=webp&s=d9fb0e24b70d087889983fb714528ef27fb259de",
+    "https://preview.redd.it/angela-insta-irtr-v0-9e0s9513qg5f1.jpg?width=1080&crop=smart&auto=webp&s=625df24ea2e5b73f2ad4a2b5cabb6f3cf797e61b",
+    "https://preview.redd.it/lauren-hamden-irtr-v0-e300xhdoee5f1.jpeg?width=1080&crop=smart&auto=webp&s=55939496cdb0fdf9999ad2d1f79ff0e6bb49ffcd",
+    "https://preview.redd.it/stormi-henley-irtr-v0-303os53eqe5f1.jpeg?width=1080&crop=smart&auto=webp&s=9cd3144120e408078fbc23e5fbbb99793491a5c4",
+    "https://preview.redd.it/sydney-sweeney-irtr-v0-cozrvgbvoc5f1.jpeg?width=1080&crop=smart&auto=webp&s=10a3e97caebadfda4cd7915133d29ba76fd35aab",
+    "https://preview.redd.it/eva-murati-irtr-v0-r2kfnlg3me5f1.jpeg?width=1080&crop=smart&auto=webp&s=6da1aa9947fa717516dfdb76dce00f821a921d30",
+    "https://preview.redd.it/alexandra-baron-irtr-v0-8qhdfwo2hq6f1.jpeg?width=320&crop=smart&auto=webp&s=3240467c830df3cd82a600385a318f37432f0e69",
+    "https://preview.redd.it/alley-kerr-irtr-v0-42k7p8d6tz5f1.jpg?width=1080&crop=smart&auto=webp&s=e2422ee8192f98b3a99e7f3c5d764490028a8e91",
+    "https://preview.redd.it/rachelle-van-waardhuizen-irtr-v0-cgi7sxyn5c5f1.jpeg?width=1080&crop=smart&auto=webp&s=296361a04d95572ceb678b0155691b517a439a5e",
+    "https://preview.redd.it/mahea-rose-irtr-v0-2tlg62zq106f1.jpeg?width=640&crop=smart&auto=webp&s=f8aeccf7a6e380298f4f1fd3b24f3deb3b542c6a",
+    "https://preview.redd.it/maya-coleman-irtr-v0-jtudvzx89c5f1.jpg?width=1080&crop=smart&auto=webp&s=0cb1e67d29e10355168b4d7ab1e4b815b3fb81f0",
+    "https://preview.redd.it/mishka-silva-irtr-v0-oo78g6a1uc5f1.jpeg?width=1080&crop=smart&auto=webp&s=e3a5c2cf7d1fe2cf05bd6b4978e8358795b4eed9",
+    "https://preview.redd.it/susanna-giovanardi-irtr-v0-97vlx6n69c5f1.jpg?width=1080&crop=smart&auto=webp&s=4bdead315e5650402b3dadc5261223a058b5f99b",
+    "https://preview.redd.it/lynn-han-irtr-v0-ejm7ni805d5f1.jpg?width=1080&crop=smart&auto=webp&s=0ff99da38b2b0ddfd762c9a154b18c6051df46d0",
+    "https://preview.redd.it/giusy-meloni-irtr-v0-pijab0ght85f1.jpeg?width=1080&crop=smart&auto=webp&s=b58b83128fbf1d703333264cf0b9c6e87f2a96c8",
+    "https://preview.redd.it/mark%C3%A9ta-%C5%A1troblov%C3%A1-irtr-v0-qa5vwbmzw85f1.jpg?width=640&crop=smart&auto=webp&s=72ae35d6df29370490d939d7aa9238355367e67a",
+    "https://preview.redd.it/julia-garner-irtr-v0-u73vc8uhu85f1.jpeg?width=1080&crop=smart&auto=webp&s=f1b4ad8ec423123c6f788447c5a043bed78ee622",
+    "https://preview.redd.it/kristina-yalimova-irtr-v0-s32tiui4sh6f1.png?width=1080&crop=smart&auto=webp&s=3297eda3373d06b2b13384d0eaeaf028226f4490",
+    "https://preview.redd.it/wamiqa-gabbi-irtr-v0-hq1snukaby5f1.jpeg?width=1080&crop=smart&auto=webp&s=b43cccd9f18fc841685cd97162fb4f91601debeb",
+    "https://preview.redd.it/angela-ig-irtr-v0-ex6cn62src6f1.jpg?width=1080&crop=smart&auto=webp&s=87668cbd3679bb1779f1d9a8f5e3c17a257b6f2f",
+    "https://preview.redd.it/yael-aris-irtr-v0-ymx5hvaf4i6f1.jpeg?width=1080&crop=smart&auto=webp&s=13bc993d3aca754929dc2613f9b30fa1fd319ef1",
+    "https://preview.redd.it/kiala-renae-irtr-v0-kn4hmy5lrg6f1.jpeg?width=1080&crop=smart&auto=webp&s=3629deee2ba39ec7deb568bd396da4d2d1f24065",
+    "https://preview.redd.it/alexandra-daddario-irtr-v0-c2flo7yhlv5f1.png?width=1080&crop=smart&auto=webp&s=96fa25fce31d3234c083a908b7a9c1bf63f20627",
+    "https://preview.redd.it/vienna-russo-irtr-v0-hkstub9iif6f1.jpg?width=1080&crop=smart&auto=webp&s=a672d59c08399910d993783da363e04f8c3bb98c",
+    "https://preview.redd.it/vishaka-dhiman-irtr-v0-jlmlk2blki6f1.jpeg?width=1080&crop=smart&auto=webp&s=1119cb85ac057977e23347359e7aafed0f380364",
+    "https://preview.redd.it/alexandra-baron-irtr-v0-8uenk9vn0e6f1.jpeg?width=640&crop=smart&auto=webp&s=d052444b677671af94c303074a2bb8372411ce2a",
+    "https://preview.redd.it/savannah-clarke-irtr-v0-ptjkuqt2yf6f1.jpeg?width=1080&crop=smart&auto=webp&s=4601275b0120fa98a28c4336f3b7a8ae647b6eae",
+    "https://preview.redd.it/ehl9q19dkb6f1.jpg?width=1080&crop=smart&auto=webp&s=379bcf0e122563726219597cd88961441c1a8974",
+    "https://preview.redd.it/elina-karimova-irtr-v0-pl3ff5xdm46f1.png?width=1080&crop=smart&auto=webp&s=7999d5c441853344fe8c3fc36378699ce076c1a3",
+    "https://preview.redd.it/alexa-ig-irtr-v0-li0ma0b8gu5f1.png?width=640&crop=smart&auto=webp&s=4b2141a5e62c6d05af751a0fc26df2aef0f8220f",
+    "https://preview.redd.it/olivia-rodrigo-irtr-v0-7fb5fb39w55f1.jpeg?width=1080&crop=smart&auto=webp&s=5436f5dd003416260e984dad828dcb6d9a126275",
+    "https://preview.redd.it/katya-kate-li-irtr-v0-rryj3s3jx55f1.jpeg?width=1080&crop=smart&auto=webp&s=7afd964dd29d9f671939f887e656d36956361466",
+    "https://preview.redd.it/ava-max-irtr-v0-njrdpjpb455f1.jpeg?width=640&crop=smart&auto=webp&s=48867cc9289989cbdca585cf8804f9c7c3b50856",
+    "https://preview.redd.it/milly-alcock-irtr-v0-wpqb3bwbn15f1.jpeg?width=640&crop=smart&auto=webp&s=4ae6b890c074653f5d03374bba9599834be0f053",
+    "https://preview.redd.it/emily-feld-irtr-v0-i1tdua35pz4f1.jpeg?width=640&crop=smart&auto=webp&s=39b8af64f12e70c510c5b884d8151d8642d79608",
+    "https://preview.redd.it/stephanie-zustovich-irtr-v0-q3jjgcutv25f1.jpeg?width=1080&crop=smart&auto=webp&s=fcbadf45147a20e4411bed23359afc5b9c56f86a",
+    "https://preview.redd.it/ana-mena-rojas-irtr-v0-iyrz56n7iz4f1.jpeg?width=640&crop=smart&auto=webp&s=695655a505ea774d28848ef98b7dd4b1f4de55be",
+    "https://preview.redd.it/dainty-insta-irtr-v0-9mx3lgi4jr4f1.jpeg?width=1080&crop=smart&auto=webp&s=c1815eedb2f71854623f368dd4d86cef85f908b5",
+    "https://preview.redd.it/darya-yanchik-irtr-v0-exgjvzkkrr4f1.jpeg?width=1080&crop=smart&auto=webp&s=55a79c95250f2a784b6d9c6c8658365d14ec35a2",
+    "https://preview.redd.it/kaley-cuoco-v0-c6vnlv8m5s4f1.jpg?width=1080&crop=smart&auto=webp&s=19089d1a9e798f69930b76ae3ee232b1e708a28b",
+    "https://preview.redd.it/haley-bennett-irtr-v0-qyaleguphr4f1.jpeg?width=1080&crop=smart&auto=webp&s=06c923f9568ffc5849c0a25a2ea558df43f31f12",
+    "https://preview.redd.it/morgan-szeflinski-irtr-v0-e6l5sxb50q4f1.jpeg?width=640&crop=smart&auto=webp&s=2ca18aabb0e11890b9ebf106504b48d728fe90af",
+    "https://preview.redd.it/ellen-stark-irtr-v0-xx9lo8f4zp4f1.jpeg?width=1080&crop=smart&auto=webp&s=d3898324e4e3486ff7c449823c2a9264e99e08fa",
+    "https://preview.redd.it/valeria-rudenko-irtr-v0-pbmdwiuq1l4f1.png?width=640&crop=smart&auto=webp&s=989c4c594d67d6071688c6678ec241bba289148a",
+    "https://preview.redd.it/ava-max-irtr-v0-7haqvnmm4o4f1.jpeg?width=320&crop=smart&auto=webp&s=41a183f5798afd0e80cad32767c3492abe5da091",
+    "https://preview.redd.it/hieke-konings-irtr-v0-3e1114wynl4f1.jpeg?width=1080&crop=smart&auto=webp&s=14e6a50b22eaf85313408dff9934be909cc2722a",
+    "https://preview.redd.it/michelle-trachtenberg-irtr-v0-0ae4kzd6gj4f1.jpeg?width=640&crop=smart&auto=webp&s=f9bf5cdba8419a38ec21021a49d8bbef6f0f6ae0",
+    "https://preview.redd.it/elle-jean-irtr-v0-ebxsnaebji4f1.jpg?width=1080&crop=smart&auto=webp&s=d2455d6330aa13dcd4f3c103affe4892e62fa203",
+    "https://preview.redd.it/victoria-pfeiffer-irtr-v0-wtu3vtb5ki4f1.jpeg?width=1080&crop=smart&auto=webp&s=253f56d9cfaa0194ab5ced012aa4489195bae001",
+    "https://preview.redd.it/lea-meniel-irtr-v0-6x8e1madjd4f1.jpg?width=1080&crop=smart&auto=webp&s=4f8289fb3efe7a8b57ccd359d16fe420c88759e4",
+    "https://preview.redd.it/darya-yanchik-irtr-v0-vdw2vakiwc4f1.jpeg?width=640&crop=smart&auto=webp&s=54b45ba67bfa1470d99f82ce3e0d10be56e0017a",
+    "https://preview.redd.it/marie-siegler-irtr-v0-j2mz26pugd4f1.jpeg?width=640&crop=smart&auto=webp&s=5d3b9034e986f1a50c313936e02c9dc27bf79483",
+    "https://preview.redd.it/elle-fanning-irtr-v0-ithgt660ie4f1.jpeg?width=1080&crop=smart&auto=webp&s=eb9f28d098edf9666a88f77d81c3af543d904d1d",
+    "https://preview.redd.it/olivia-link-irtr-v0-62w98n8u0b4f1.jpeg?width=1080&crop=smart&auto=webp&s=aab3a954c541afc50dfc7f42aa821f36c6dadd96",
+    "https://preview.redd.it/lindsay-brewer-irtr-v0-q5daud5hra4f1.jpeg?width=640&crop=smart&auto=webp&s=00ae35dc185c62bda157cf0e86e2a40b196671a4",
+    "https://preview.redd.it/mckenna-grace-irtr-v0-daye6htt094f1.jpeg?width=1080&crop=smart&auto=webp&s=aae3cf874d306648ce6dbdfd12fd444725728d8e",
+    "https://preview.redd.it/alice-krutikova-irtr-v0-tzbduon3n74f1.jpeg?width=1080&crop=smart&auto=webp&s=b82090dbfa9c940728d064d596d7082eb901bba8",
+    "https://preview.redd.it/leni-emilia-irtr-v0-mfuct5ewl84f1.jpg?width=1080&crop=smart&auto=webp&s=2e17b15fe3fc21e6882a8ba3b73cee5faf6b3f7b",
+    "https://preview.redd.it/mrs-josh-allen-aka-hailee-steinfeld-irtr-v0-r0extq3e394f1.jpeg?width=1080&crop=smart&auto=webp&s=6d43ccf93ed5af38a0c3fb6079a7537da0bf9cf6",
+    "https://preview.redd.it/disha-patani-irtr-v0-w34bsjdyz74f1.jpeg?width=640&crop=smart&auto=webp&s=38f8edb4cda519be700cb741aa50281433fea188",
+    "https://preview.redd.it/sara-crumbleleg-irtr-v0-h8bwquf6q44f1.jpeg?width=1080&crop=smart&auto=webp&s=caa9e254d52d6557b9c386c69fb5eb1ad914c4d1",
+    "https://preview.redd.it/eve-dumon-irtr-v0-lemf0oz0c54f1.jpeg?width=1080&crop=smart&auto=webp&s=6f9e798eed09a9d3aba8a2f68d7330f4f1ddfbc1",
+    "https://preview.redd.it/jamie-duff-irtr-v0-ihfduucfg04f1.jpeg?width=1080&crop=smart&auto=webp&s=5cc5ce4fdd18055ab82df6c2a0ba8ad6bd895d80",
+    "https://preview.redd.it/loreto-peralta-irtr-v0-7v92w27fqz3f1.jpeg?width=640&crop=smart&auto=webp&s=dff53518ab2aaa1fbb44281e99842130a0228da0",
+    "https://preview.redd.it/leyah-cata-irtr-v0-zliqsw3paz3f1.jpg?width=1080&crop=smart&auto=webp&s=c69088b3c30ae39a3e9374bc28cf048f1c45b865",
+    "https://preview.redd.it/savannah-mccray-irtr-v0-ql0bcbsn1w3f1.jpeg?width=1080&crop=smart&auto=webp&s=e83a76700f20bfb6a4301ff32bc7ae8c2b545c6f",
+    "https://i.imgur.com/LgoUbm4.jpeg",
+    "https://i.imgur.com/bRgJ3y9.jpeg",
+    "https://i.imgur.com/qvAsiey.jpeg",
+    "https://i.imgur.com/yXq7zxU.jpeg"
+  ];
+
+  // 统一联盟推广链接（示范用）
+  const affiliateLink = "https://t.acrsmartcam.com/376784/2994/28477?bo=2779,2778,2777,2776,2775&po=6533&aff_sub5=SF_006OG000004lmDN";
+
+  const gallery = document.getElementById("gallery");
+
+  images.forEach((src, index) => {
+    const card = document.createElement("div");
+    card.className = "photo-card";
+
+    const link = document.createElement("a");
+    link.href = affiliateLink;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = `推广图片${index + 1}`;
+
+    link.appendChild(img);
+    card.appendChild(link);
+    gallery.appendChild(card);
+  });
+</script>
 
 </body>
 </html>
+<footer style="background-color: #1a1a1a; color: #ccc; padding: 20px; text-align: center; font-size: 13px; font-family: Arial, sans-serif;">
+  <p><strong>Contact Information</strong></p>
+  <p>Email: <a href="mailto:jamescali93@outlook.com" style="color: #f06292;">jamescali93@outlook.com</a></p>
+  <p>Business Address: 219 Winterport ST, Henderson, NV 89074, USA</p>
+  <p>&copy; 2025 YourCompanyName. All Rights Reserved.</p>
+  <p style="font-size: 11px; color: #888; margin-top: 10px;">For business inquiries only. This site contains affiliate links.</p>
+</footer>
+
