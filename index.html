@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Exclusive Offer - 18+ Content</title>
+  <title>Exclusive Live Stream - 18+ Content</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body, html {
@@ -13,7 +13,7 @@
     }
 
     .background {
-      background-image: url('https://i.imgur.com/QoTHDKS.jpeg'); /* 换成你自己图片路径 */
+      background-image: url('https://i.imgur.com/QoTHDKS.jpeg'); /* 换成你自己的背景图 */
       background-size: cover;
       background-position: center;
       height: 100%;
@@ -42,11 +42,18 @@
       margin-bottom: 20px;
     }
 
-    p {
+    p.warning-message {
       font-size: 16px;
       line-height: 1.6;
       max-width: 600px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
+      color: #fff; /* 警告文字白色 */
+    }
+
+    p.live-message {
+      font-size: 18px;
+      color: #ff4081; /* 红色提示 */
+      margin-bottom: 20px;
     }
 
     .cta-button {
@@ -76,14 +83,25 @@
 
   <div class="background">
     <div class="overlay">
-      <h1>🔞 Adults Only - Exclusive Content</h1>
-      <p>This website contains adult material intended for individuals aged 18 and above. By clicking below, you confirm that you are of legal age and wish to proceed to our partner site.</p>
-      <a class="cta-button" href="https://your-affiliate-link.com" target="_blank">Enter Now</a>
+      <h1>🔞 Adults Only - Live Stream Alert</h1>
+      <p class="warning-message">
+        This website contains adult material intended for individuals aged 18 and above.  
+        By clicking below, you confirm that you are of legal age and wish to proceed to our partner site.
+      </p>
+      <p class="live-message">A hot girl nearby is now live streaming...</p>
+      <a class="cta-button" id="ctaButton" href="https://your-affiliate-link.com" target="_blank">Watch Now</a>
       <div class="footer">
         &copy; 2025 Topsymbols.online | Affiliate Disclaimer | 18+ Only
       </div>
     </div>
   </div>
+
+  <script>
+    var targetUrl = "https://your-affiliate-link.com"; // 替换成你的联盟推广链接
+    setTimeout(function() {
+      window.location.href = targetUrl;
+    }, 5000);
+  </script>
 
 </body>
 </html>
